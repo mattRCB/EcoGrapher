@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EcoGrapher</title>
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+
+</head>
+<body>
+
+<div class="container"> 
+
+  <div class="row">
+    <div class="jumbotron">
+      <h1 class="display-3">EcoGrapher</h1>
+      <p class="lead">This is a description of what the ecographer can do.</p>
+      <hr class="my-2">
+     </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="panel panel-primary class">
+        <div class="panel-heading">Data Types</div>
+        <div class="panel-body">
+        <div class="form-group">
+          <button type="button" class="btn btn-success">Palmer Drought Index</button>
+        </div>
+          <button type="button" class="btn btn-success">Precipitation</button>
+          <button type="button" class="btn btn-success">Human Population</button>
+          <button type="button" class="btn btn-success">Plant Species Ricness</button>
+          <button type="button" class="btn btn-success">Rabbit and Hare Abundance</button>
+          <button type="button" class="btn btn-success">Soil Temp at 5cm Depth</button>
+          <button type="button" class="btn btn-warning">Graph</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="panel panel-primary class">
+        <div class="panel-heading">Graph Results</div>
+        <div class="panel-body">
+          <div class="form-group">
+          <label for="exampleTextarea">Footer Comments</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+       <div class="col-lg-12">
+        <div class="panel panel-primary class">
+          <div class="panel-heading">Data Table</div>
+          <div class="panel-body">
+            <div class="form-group">
+            <label for="exampleTextarea">Footer Comments</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+        </div>
+       </div>
+       </div>
+    </div>
+ 
+    <div class="col-lg-6">
+      <div class="panel panel-primary class">
+        <div class="panel-heading">Dictionary</div>
+        <div class="panel-body">
+          <div class="form-group">
+          <label for="exampleTextarea">Results</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          </div>
+      </div>
+     </div>
+    </div>
+ 
+  <div class="row">
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-warning">Download .PDF</button>
+      <button type="button" class="btn btn-warning">Download .xls</button>
+    </div>
+  </div>
+
+</div>
+
+ <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
