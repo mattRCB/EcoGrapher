@@ -6,85 +6,137 @@
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 
-<link rel="stylesheet" type="text/css" href="assets/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
 
-<div class="container"> 
-
   <div class="row">
     <div class="jumbotron">
-      <h1 class="display-3">EcoGrapher</h1>
-      <p class="lead">This is a description of what the ecographer can do.</p>
-      <hr class="my-2">
+      <h1 class="display-3">Ecology Data Grapher</h1>
+      <p class="lead">Compare ecological data sets with sharable graphs</p>
      </div> 
   </div>
 
+<div class="container">
   <div class="row">
+
     <div class="col-lg-4">
       <div class="panel panel-primary class">
-        <div class="panel-heading">Data Types</div>
-        <div class="panel-body">
-        <div class="form-group">
-          <button type="button" class="btn btn-success">Palmer Drought Index</button>
-        </div>
-          <button type="button" class="btn btn-success">Precipitation</button>
-          <button type="button" class="btn btn-success">Human Population</button>
-          <button type="button" class="btn btn-success">Plant Species Ricness</button>
-          <button type="button" class="btn btn-success">Rabbit and Hare Abundance</button>
-          <button type="button" class="btn btn-success">Soil Temp at 5cm Depth</button>
-          <button type="button" class="btn btn-warning">Graph</button>
+        <div class="panel-heading">Data Types (Choose ONLY Two to Compare) </div>
+          <div class="panel-body">
+        
+            <button type="button" class="btn btn-info" class="active">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Precipitation&mdash;in cm (yearly)
+                </label>
+              </div>
+            </button>
+            <button type="button" class="btn btn-info" class="active">
+              <div class="form-check disabled">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Human Population in Dona Ana County<br>&mdash;(every 10 years)
+                </label>
+              </div>
+            </button>
+            <button type="button" class="btn btn-info" class="active">
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="">
+                Plant Species Richness <br>&mdash;in 49 meter square plots (yearly)
+              </label>
+            </div>
+            </button>
+            <button type="button" class="btn btn-info" class="active">
+              <div class="form-check disabled">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Rabbit and Hare Abundance <br>&mdash;Number per 10km strech of road (yearly)
+                </label>
+              </div>
+            </button>
+            <button type="button" class="btn btn-info" class="active">
+              <div class="form-check disabled">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Soil Temperature&mdash;in celcius (yearly)
+                </label>
+              </div>
+            </button>
+            <button type="button" class="btn btn-info" class="active">
+              <div class="form-check disabled">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Mean Air Temperature&mdash;in celcius (yearly)
+                </label>
+              </div>
+            </button>
+            <button type="button" class="btn btn-warning">Graph</button>
+            <button type="button" class="btn btn-danger">Clear Graph</button>
         </div>
       </div>
     </div>
 
     <div class="col-lg-8">
-      <div class="panel panel-primary class">
+      <div class="panel panel-primary class" id="graph">
         <div class="panel-heading">Graph Results</div>
         <div class="panel-body">
           <div class="form-group">
           <label for="exampleTextarea">Footer Comments</label>
           <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          <p id="passwordHelpBlock" class="form-text text-muted">
+          Enter your description of the data here.
+          </p>
           </div>
+        </div>
+        </div>
       </div>
-     </div>
-    </div>
+
   </div>
 
-  <div class="row">
-       <div class="col-lg-12">
-        <div class="panel panel-primary class">
-          <div class="panel-heading">Data Table</div>
-          <div class="panel-body">
-            <div class="form-group">
-            <label for="exampleTextarea">Footer Comments</label>
-            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-            </div>
+     <div class="col-lg-12">
+      <div class="panel panel-primary class">
+        <div class="panel-heading">Data Table</div>
+        <div class="panel-body">
+          <div class="form-group">
+          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          </div>
         </div>
-       </div>
-       </div>
-    </div>
- 
+      </div>
+     </div>
+
     <div class="col-lg-6">
       <div class="panel panel-primary class">
         <div class="panel-heading">Dictionary</div>
         <div class="panel-body">
           <div class="form-group">
+          <label for="exampleTextarea">Search</label>
+          <textarea class="form-control" id="definitionSearch" rows="1"></textarea>
+          </div>
+          <div class="form-group">
           <label for="exampleTextarea">Results</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
           </div>
       </div>
      </div>
     </div>
- 
-  <div class="row">
-    <div class="col-lg-6">
-      <button type="button" class="btn btn-warning">Download .PDF</button>
-      <button type="button" class="btn btn-warning">Download .xls</button>
-    </div>
-  </div>
 
+    <div class="col-lg-6">
+      <div class="panel panel-primary class">
+        <div class="panel-body">
+        <button type="button" class="btn btn-warning">Download .PDF of graph</button>
+        <button type="button" class="btn btn-warning">Download .xls of graph</button>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div class="footer">
+  <p> Created by Anthony Carnese, Anna Kimtis, and Matt Stein</p>
+  <p> @2017</p>
 </div>
 
  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>

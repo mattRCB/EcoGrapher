@@ -1,0 +1,30 @@
+.jumbotron{
+  background-image: url(desertpan.jpg);
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.jumbotron h1{
+  margin-left: 30px
+}
+
+.jumbotron p{
+  margin-left: 30px;
+}
+
+.btn btn-info {
+  width: 100%;
+  display: block;
+} 
+
+#graph{
+  height: 600px;
+}
+
+.footer{
+  height: 100px;
+  text-align: center;
+  background-color: grey;
+}
