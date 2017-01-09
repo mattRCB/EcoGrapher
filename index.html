@@ -6,6 +6,11 @@
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 
+<!-- loading flat UI components -->
+<link href="flat-ui-css/flat-ui.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+
+<!-- loading our custom style sheet -->
 <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -21,7 +26,61 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-lg-4">
+      <div class="row demo-samples">
+        <div class="col-xs-4">
+          <div class="todo">
+          <div class="panel panel-primary class">
+            <div class="panel-heading">Data Types </div> 
+            <ul>
+              <li class="todo-done">
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Precipitation 
+                  </h4>
+                  in CM (yearly)
+                </div>
+              </li>
+              <li>
+                <!-- <div class="todo-icon fui-list"></div> -->
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Human <strong>Population</strong>
+                  </h4>
+                  in Dona Ana County (every 10 years)
+                </div>
+              </li>
+              <li>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Plant <strong>Species</strong><strong> Richness</strong>
+                  </h4>
+                  number of plant speices in 49 meter square plots (yearly)
+                </div>
+              </li>
+              <li>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Soil <strong>Temperature</strong>
+                  </h4>
+                  at 5 cm depth in celcius (yearly)
+                </div>
+              </li>
+              <li>
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                    Rabbit <strong>and </strong> Hare <strong>Abundance</strong>
+                  </h4>
+                  per 10km strech of road (yearly)
+                </div>
+              </li>
+            </ul>
+            </div>
+            <button type="button" class="btn btn-primary">Graph</button>
+          </div><!-- /.todo -->
+        </div><!-- /.col-xs-4 -->
+
+
+    <!-- <div class="col-lg-4">
       <div class="panel panel-primary class">
         <div class="panel-heading">Data Types (Choose ONLY Two to Compare) </div>
           <div class="panel-body">
@@ -78,12 +137,13 @@
             <button type="button" class="btn btn-danger">Clear Graph</button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="col-lg-8">
       <div class="panel panel-primary class" id="graph">
         <div class="panel-heading">Graph Results</div>
         <div class="panel-body">
+       <!--  GRAPH GOES HERE -->
           <div class="form-group">
           <label for="exampleTextarea">Footer Comments</label>
           <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
@@ -126,12 +186,13 @@
     <div class="col-lg-6">
       <div class="panel panel-primary class">
         <div class="panel-body">
-        <button type="button" class="btn btn-warning">Download .PDF of graph</button>
-        <button type="button" class="btn btn-warning">Download .xls of graph</button>
+        <button type="button" class="btn btn-primary">Download .PDF of graph</button>
+        <button type="button" class="btn btn-primary">Download .xls of graph</button>
         </div>
       </div>
     </div>
 
+  </div>
 </div>
 
 <div class="footer">
@@ -142,6 +203,12 @@
  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 
   <script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- flat UI javascript files -->
+   <!--  <script src="flat-ui-js/vendor/jquery.min.js"></script>
+    <script src="flat-ui-js/vendor/video.js"></script>
+    <script src="flat-ui-js/flat-ui.min.js"></script> -->
+    <script src="flat-ui-js/application.js"></script>
 
   <script src="assets/app.js"></script>
 </body>
