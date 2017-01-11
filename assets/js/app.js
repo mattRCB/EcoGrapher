@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 	var db;
-
 	var selection1 = "";
 	var selection2 = "";
 
@@ -19,7 +18,7 @@ $(document).ready(function(){
 
 
 		console.log('you clicked: ' + $(this).text());
-	});
+	}); // .dataSet on-click selection function
 
 
 	function getSpreadsheetData() {
@@ -40,50 +39,37 @@ $(document).ready(function(){
 	};
 
 
-	$(document).on('click', '#graphBtn', function() {
-		console.log("Clicked graphBtn.");
-		getSpreadsheetData();
-		drawGraph();
-	});
-
-
 	function drawGraph() {
     // Create the chart
 	    Highcharts.chart('graph-well', {
-
 	        title: {
 	            text: 'Highcharts data from Google Spreadsheets'
 	        },
 
 	        data: {
-	            googleSpreadsheetKey: '0AoIaUO7wH1HwdENPcGVEVkxfUDJkMmFBcXMzOVVPdHc'
-	        },
-	        exporting: {
-            	enabled: false
-        	}
-	        
-
+	            googleSpreadsheetKey: '1swa7IJkys5J2UmZRswntYrvgo_lm7M9ADgW7W0mgC-o'
+	        }
 	    });
-	};
+	}; // drawGraph()
+
+
+
+	$(document).on('click', '#graphBtn', function() {
+		console.log("Clicked graphBtn.");
+		getSpreadsheetData();
+		drawGraph();
+	}); // #graphBtn on-click
+
 
 	$(document).on('click', '#pdfButton', function() {
 		console.log('Clicked DownloadPDF button.');
-		
 
-	        var chart = $('#graph-well').highcharts();
-	        chart.exportChart({
-	            type: 'application/pdf',
-        	});
+        var chart = $('#graph-well').highcharts();
+        chart.exportChart({
+            type: 'application/pdf',
+    	});
 
-
-
-	});
-
-
-
-
-
-
+	}); // #pdfButton on-click
 
 
 
