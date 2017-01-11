@@ -42,7 +42,12 @@ $(document).ready(function(){
 	function drawGraph() {
     // Create the chart
 	    Highcharts.chart('graph-well', {
-	        title: {
+			chart: {
+				type: 'line',
+				zoomType: 'xy'
+        	},
+
+			title: {
 	            text: 'Highcharts data from Google Spreadsheets'
 	        },
 
