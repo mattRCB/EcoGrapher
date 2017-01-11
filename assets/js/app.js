@@ -6,18 +6,41 @@ $(document).ready(function(){
 
 	$(document).on('click', '.dataSet', function() {
 		var bckgrdColor = $(this).css('background-color');
-		console.log(bckgrdColor);
+		console.log('you clicked: ' + $(this).text().trim());
 
-		if ($(this).css('background-color') !== (0, 0, 255)) {
-			$(this).css('background-color', 'blue');
-			$(this).css('color', 'white');			
-		} else {
+
+
+		if ($(this).text().trim() == selection1) {
 			$(this).css('background-color', 'white');
-			$(this).css('color', 'black');			
+			$(this).css('color', 'black');
+			selection1 = "";
+		}
+
+		if ($(this).text().trim() == selection2) {
+			$(this).css('background-color', 'white');
+			$(this).css('color', 'black');
+			selection2 = "";
+		}
+
+		if (selection1 == "") {
+			$(this).css('background-color', 'blue');
+			$(this).css('color', 'white');
+			selection1 = $(this).text().trim();
+			// console.log("selection1 set to: " + selection1);			
+		} else if (selection2 == "") {
+			$(this).css('background-color', 'blue');
+			$(this).css('color', 'white');
+			selection2 = $(this).text().trim();
+			// console.log("selection2 set to: " + selection2);
 		}
 
 
-		console.log('you clicked: ' + $(this).text());
+
+		console.log("selection1 set to: " + selection1);
+		console.log("selection2 set to: " + selection2);		
+
+
+
 	}); // .dataSet on-click selection function
 
 
