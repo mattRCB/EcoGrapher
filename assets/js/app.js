@@ -26,15 +26,16 @@ $(document).ready(function(){
 		var url = 'https://sheets.googleapis.com/v4/spreadsheets/1swa7IJkys5J2UmZRswntYrvgo_lm7M9ADgW7W0mgC-o/values/Sheet1!A2:H115?majorDimension=COLUMNS&key=AIzaSyCWbVVxyblRIxU04_pxNh3g2WQXkXPAknE';
 
 		$.getJSON(url).success(function(data) {
-		   	console.log(data);
+
+
+		}).error(function(message) {
+			console.error('error' + message);
+		}).complete(function(data) {
+			console.log('completed!');
+			console.log(data);
 
 			db = data;
 			console.log(db);
-
-		}).error(function(message) {
-		   console.error('error' + message);
-		}).complete(function() {
-		   console.log('completed!');
 		});
 	};
 
@@ -42,25 +43,40 @@ $(document).ready(function(){
 	$(document).on('click', '#graphBtn', function() {
 		console.log("Clicked graphBtn.");
 		getSpreadsheetData();
+		drawGraph();
+	});
 
-		// EXAMPLE OF CREATING A CHART FROM A GOOGLE SPREADSHEET
-		// USING HIGHCHARTS'  > modules/data.js <
-		// 
-		$(function () {
-		    // Create the chart
-		    Highcharts.chart('graph-well', {
 
-		        title: {
-		            text: 'Highcharts data from Google Spreadsheets'
-		        },
+	function drawGraph() {
+    // Create the chart
+	    Highcharts.chart('graph-well', {
 
-		        data: {
-		            googleSpreadsheetKey: '0AoIaUO7wH1HwdENPcGVEVkxfUDJkMmFBcXMzOVVPdHc'
-		        }
-		        
+	        title: {
+	            text: 'Highcharts data from Google Spreadsheets'
+	        },
 
-		    });
-		});
+	        data: {
+	            googleSpreadsheetKey: '0AoIaUO7wH1HwdENPcGVEVkxfUDJkMmFBcXMzOVVPdHc'
+	        },
+	        exporting: {
+            	enabled: false
+        	}
+	        
+
+	    });
+	};
+
+	$(document).on('click', '#pdfButton', function() {
+		console.log('Clicked DownloadPDF button.');
+		
+
+	        var chart = $('#graph-well').highcharts();
+	        chart.exportChart({
+	            type: 'application/pdf',
+        	});
+
+
+
 	});
 
 
