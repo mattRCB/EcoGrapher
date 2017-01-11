@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Enable highcharts -->
 	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<!-- Enable highcharts to fetch google spreadsheet data -->
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<!-- Enable creation of pdf  -->
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<!-- optional. Enable pdf creation to be done locally w/o highchart server-->
+	<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
 	<title>EcoGrapher</title>
-	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-	<script type="text/javascript", src="./assets/js/script.js"></script>
+
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading text-center">
+				<h3 class="panel-title"><strong>EcoGrapher</strong></h3>
+			</div> <!-- panel-heading -->
+			<div class="panel-body">
+
+
+				<ul class="col-md-3">
+					<h3>Select two data-sets to graph</h2>
+					<li class="dataSet">Precipitation</li>
+					<li class="dataSet">Human Pop. (Dona Ana Cnty.)</li>
+					<li class="dataSet">Plant Species Richness</li>
+					<li class="dataSet">Rabbit/Hare Abundance</li>
+					<li class="dataSet">Soil Temperature</li>
+					<li class="dataSet">Mean Air Temperature</li>
+					<button id="graphBtn">Graph</button>
+				</ul>
+
+
+				<div class="well col-md-9" id="graph-well">
+				</div> <!-- graph-well -->
+
+
+				<textarea placeholder="Write a caption for the graph here" class="col-md-9 col-md-offset-3" id="caption"></textarea>
+
+
+				<div class="well col-md-12" id="table-of-data"></div>
+
+
+				<div class="panel panel-primary col-md-3" id="dictionary-panel">
+					<div class="panel-heaading text-center">
+						<h4>Dictionary</h4>
+					</div>
+					<div class="panel-body">
+						<form id="dictionary-form">
+							<input type="text" id='dictionary-input' placeholder='type a word to look-up.'>
+							<input type="submit" id="dictionary-button">
+						</form>
+					</div>
+				</div> <!-- dictionary-panel -->
+
+
+				<button id="pdfButton" class="col-md-offset-5">Download PDF</button>
+				
+			</div> <!-- panel-body -->
+		</div> <!-- panel -->
+	</div> <!-- container -->
+
+	<script type="text/javascript" src="./assets/js/app.js"></script>
 </body>
 </html>

@@ -1,2 +1,0 @@
-# EcoGrapher
-GroupProject1

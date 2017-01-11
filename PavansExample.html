@@ -1,0 +1,22 @@
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script>
+//https://docs.google.com/spreadsheets/d/1UPQ74120ib3y12DQphuLL7Sc8aPQ8SswLs11XGR-syk/pubhtml
+	var url = 'https://spreadsheets.google.com/feeds/list/1UPQ74120ib3y12DQphuLL7Sc8aPQ8SswLs11XGR-syk/od6/public/values?alt=json-in-script&callback=?';
+// $.getJSON(url).success(function(data) {
+//    console.log(data);
+
+// }).error(function(message) {
+//    console.error('error' + message);
+// }).complete(function() {
+//    console.log('completed!');
+// });
+
+$.getJSON( url, function( data ) {
+ 	
+	console.log(data)
+});
+</script>
