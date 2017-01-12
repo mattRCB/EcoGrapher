@@ -10,19 +10,24 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+
+
+
 		if ($(this).text().trim() == selection1) {
 			$(this).css('background-color', 'white');
 			$(this).css('color', 'black');
 			selection1 = "";
-		}
-
-		if ($(this).text().trim() == selection2) {
+		} else if ($(this).text().trim() == selection2) {
 			$(this).css('background-color', 'white');
 			$(this).css('color', 'black');
 			selection2 = "";
-		}
-
-		if (selection1 == "") {
+		} else if ((selection1 != "") && (selection2 != "")) {
+			// do nothing-> show tool tip 'You must deselect one item before you can select this one.'
+		} else if (selection1 == "") {
 			$(this).css('background-color', 'blue');
 			$(this).css('color', 'white');
 			selection1 = $(this).text().trim();
