@@ -1,14 +1,9 @@
 $(document).ready(function(){
-
-	// var db = {};
-	// var series1;
-	// var xAxLabel = [];
-
 	var selection1 = "";
 	var selection2 = "";
 
 	$(document).on('click', '.dataSet', function() {
-		console.log('you clicked: ' + $(this).text().trim());
+		// console.log('you clicked: ' + $(this).text().trim());
 
 		if ($(this).text().trim() == selection1) {
 			$(this).css('background-color', 'white');
@@ -19,7 +14,8 @@ $(document).ready(function(){
 			$(this).css('color', 'black');
 			selection2 = "";
 		} else if ((selection1 != "") && (selection2 != "")) {
-			// do nothing-> show popover 'You must deselect one item before you can select this one.'
+			// do nothing-> show popover:
+			// 'You must deselect one item before you can select this one.'
 		} else if (selection1 == "") {
 			$(this).css('background-color', 'blue');
 			$(this).css('color', 'white');
@@ -41,7 +37,6 @@ $(document).ready(function(){
 
 		$.getJSON(url).success(function(data) {
 
-
 		}).error(function(message) {
 			console.error('error' + message);
 		}).complete(function(data) {
@@ -49,13 +44,11 @@ $(document).ready(function(){
 			db = data;
 			console.log(db);
 
-			series1 = db.responseJSON.values[1];
-			xAxLabel = db.responseJSON.values[0];
-
 			drawGraph(db);
 		});
 	};
 
+	// Need single word to act as key in hashtable.
 	function getFirstWord(selection) {
         if (selection.indexOf(' ') === -1)
             return selection;
@@ -63,24 +56,21 @@ $(document).ready(function(){
             return selection.substr(0, selection.indexOf(' '));
     };
 
+
 	function drawGraph(db) {
-    // Create the chart'
     	var arrDataSets = db.responseJSON.values;
     	var hash = {
-    		Precipitation : arrDataSets[1],
-    		Human : arrDataSets[2].map(Number),
-    		Plant : arrDataSets[3].map(Number),
-    		Rabbit : arrDataSets[4].map(Number),
-    		Soil : arrDataSets[5].map(Number),
-    		Mean : arrDataSets[4].map(Number)
+    		Palmer : arrDataSets[1],
+    		Precipitation : arrDataSets[2].map(Number),
+    		Human : arrDataSets[3].map(Number),
+    		Plant : arrDataSets[4].map(Number),
+    		Rabbit : arrDataSets[5].map(Number),
+    		Soil : arrDataSets[6].map(Number),
+    		Mean : arrDataSets[7].map(Number)
     	};
 
     	var key1 = getFirstWord(selection1);
     	var key2 = getFirstWord(selection2);
-
-    	// selection1.substr(0,selection1.indexOf(' '));
-    	
-    	console.log(hash['Human']);
 
 		Highcharts.chart('graph-well', {
 			chart: {
@@ -88,29 +78,25 @@ $(document).ready(function(){
 				zoomType: 'xy'
         	},
 	        xAxis: {
-	            categories: xAxLabel
+	            categories: db.responseJSON.values[0] // this is the years
 	        },
-
 			title: {	
 	            text: 'Highcharts data from Google Spreadsheets'
 	        },
 			series: [{
 	            name: selection1,
-	            data: JSON.parse("[" + hash[key1] + "]") 
-	            
+	            data: JSON.parse("[" + hash[key1] + "]")	            
 	        }, {
 	        	name : selection2,
 	        	data: JSON.parse("[" + hash[key2] + "]")
 	        }]
 	    });
-
 	}; // drawGraph()
-
 
 
 	$(document).on('click', '#graphBtn', function() {
 		console.log("Clicked graphBtn.");
-		getSpreadsheetData(selection1);
+		getSpreadsheetData();
 		drawGraph();
 	}); // #graphBtn on-click
 
@@ -119,10 +105,10 @@ $(document).ready(function(){
 		console.log('Clicked DownloadPDF button.');
 
         var chart = $('#graph-well').highcharts();
+		// POSSIBLY COULD APPEND THE CAPTION TO chart HERE. **************************
         chart.exportChart({
             type: 'application/pdf',
     	});
-
 	}); // #pdfButton on-click
 
 }); // document.ready
