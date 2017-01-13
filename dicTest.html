@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- Enable highcharts -->
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<!-- Enable highcharts to fetch google spreadsheet data -->
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<!-- Enable creation of pdf  -->
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<!-- optional. Enable pdf creation to be done locally w/o highchart server-->
+	<!-- <script src="http://code.highcharts.com/modules/offline-exporting.js"></script> -->
+<!-- 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<title>DicTest</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+
+	<script>
+		function createCORSRequest(method, url) {
+		  var xhr = new XMLHttpRequest();
+		  if ("withCredentials" in xhr) {
+		    xhr.open(method, url, true);    
+		  } else if (typeof XDomainRequest != "undefined") {
+		    xhr = new XDomainRequest();
+		    xhr.open(method, url);    
+		  } else {    
+		    // Otherwise, CORS is not supported by the browser.
+		    xhr = null;    
+		  }
+		  return xhr;
+		}
+
+		var url = 'http://www.dictionaryapi.com/api/v1/references/sd3/xml/dragon?key=2d45e553-e983-44b4-a013-c614c58df83f';
+		var xhr = createCORSRequest('GET', url);
+		if (!xhr) {
+		  throw new Error('CORS not supported');
+		}
+
+		// Response handlers.
+		xhr.onload = function() {
+		    var text = xhr.responseText;
+		    // text    = text.replace("// ","");// replace slashes, make it a pure JSON text
+		    var jsonReturend = JSON.parse(text);
+		    console.log(jsonReturend)
+		};
+
+		xhr.onerror = function() {
+		    alert('Woops, there was an error making the request.');
+		};
+
+		xhr.send();
+
+
+		console.log("It's alive.");
+	</script>
+</body>
+</html>
+
+
+
+

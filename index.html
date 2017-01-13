@@ -1,215 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EcoGrapher</title>
+	<script src="https://code.jquery.com/jquery.js"></script>
 
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-
-<!-- loading flat UI components -->
-<link href="flat-ui-css/flat-ui.css" rel="stylesheet">
-<link href="css/demo.css" rel="stylesheet">
-
-<!-- loading our custom style sheet -->
-<link rel="stylesheet" type="text/css" href="style.css">
-
+	<!-- Enable highcharts -->
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<!-- Enable highcharts to fetch google spreadsheet data -->
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<!-- Enable creation of pdf  -->
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<!-- optional. Enable pdf creation to be done locally w/o highchart server-->
+	<!-- <script src="http://code.highcharts.com/modules/offline-exporting.js"></script> -->
+<!-- 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<title>EcoGrapher</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
-
-  <div class="row">
+	<div class="row">
     <div class="jumbotron">
       <h1 class="display-3">Ecology Data Grapher</h1>
       <p class="lead">Compare ecological data sets with sharable graphs</p>
      </div> 
   </div>
 
-<div class="container">
-  <div class="row">
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
 
-      <div class="row demo-samples">
-        <div class="col-xs-4">
-          <div class="todo">
-          <div class="panel panel-primary class">
-            <div class="panel-heading">Data Types </div> 
-            <ul>
-              <li class="todo-done">
-                <div class="todo-content">
-                  <h4 class="todo-name">
-                    Precipitation 
-                  </h4>
-                  in CM (yearly)
-                </div>
-              </li>
-              <li>
-                <!-- <div class="todo-icon fui-list"></div> -->
-                <div class="todo-content">
-                  <h4 class="todo-name">
-                    Human <strong>Population</strong>
-                  </h4>
-                  in Dona Ana County (every 10 years)
-                </div>
-              </li>
-              <li>
-                <div class="todo-content">
-                  <h4 class="todo-name">
-                    Plant <strong>Species</strong><strong> Richness</strong>
-                  </h4>
-                  number of plant speices in 49 meter square plots (yearly)
-                </div>
-              </li>
-              <li>
-                <div class="todo-content">
-                  <h4 class="todo-name">
-                    Soil <strong>Temperature</strong>
-                  </h4>
-                  at 5 cm depth in celcius (yearly)
-                </div>
-              </li>
-              <li>
-                <div class="todo-content">
-                  <h4 class="todo-name">
-                    Rabbit <strong>and </strong> Hare <strong>Abundance</strong>
-                  </h4>
-                  per 10km strech of road (yearly)
-                </div>
-              </li>
-            </ul>
-            </div>
-            <button type="button" class="btn btn-primary">Graph</button>
-          </div><!-- /.todo -->
-        </div><!-- /.col-xs-4 -->
+			</div>
+			<div class="panel-body">
+
+				<ul class="col-md-3">
+					<h3>Select two data-sets to graph</h2>
+					<li class="dataSet">Palmer Drought Severity Index</li>
+					<li class="dataSet">Precipitation</li>
+					<li class="dataSet">Human Population</li>
+					<li class="dataSet">Plant Species Richness</li>
+					<li class="dataSet">Rabbit/Hare Abundance</li>
+					<li class="dataSet">Soil Temperature</li>
+					<button id="graphBtn">Graph</button>
+				</ul>
+
+				<div class="well col-md-9" id="graph-well">
+
+				</div> <!-- graph-well -->
 
 
-    <!-- <div class="col-lg-4">
-      <div class="panel panel-primary class">
-        <div class="panel-heading">Data Types (Choose ONLY Two to Compare) </div>
-          <div class="panel-body">
-        
-            <button type="button" class="btn btn-info" class="active">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Precipitation&mdash;in cm (yearly)
-                </label>
-              </div>
-            </button>
-            <button type="button" class="btn btn-info" class="active">
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Human Population in Dona Ana County<br>&mdash;(every 10 years)
-                </label>
-              </div>
-            </button>
-            <button type="button" class="btn btn-info" class="active">
-            <div class="form-check disabled">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="">
-                Plant Species Richness <br>&mdash;in 49 meter square plots (yearly)
-              </label>
-            </div>
-            </button>
-            <button type="button" class="btn btn-info" class="active">
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Rabbit and Hare Abundance <br>&mdash;Number per 10km strech of road (yearly)
-                </label>
-              </div>
-            </button>
-            <button type="button" class="btn btn-info" class="active">
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Soil Temperature&mdash;in celcius (yearly)
-                </label>
-              </div>
-            </button>
-            <button type="button" class="btn btn-info" class="active">
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Mean Air Temperature&mdash;in celcius (yearly)
-                </label>
-              </div>
-            </button>
-            <button type="button" class="btn btn-warning">Graph</button>
-            <button type="button" class="btn btn-danger">Clear Graph</button>
-        </div>
-      </div>
-    </div> -->
+				<textarea placeholder="Write a caption for the graph here" class="col-md-9 col-md-offset-3" id="caption"></textarea>
 
-    <div class="col-lg-8">
-      <div class="panel panel-primary class" id="graph">
-        <div class="panel-heading">Graph Results</div>
-        <div class="panel-body">
-       <!--  GRAPH GOES HERE -->
-          <div class="form-group">
-          <label for="exampleTextarea">Footer Comments</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-          <p id="passwordHelpBlock" class="form-text text-muted">
-          Enter your description of the data here.
-          </p>
-          </div>
-        </div>
-        </div>
-      </div>
 
-  </div>
+				<div class="well col-md-12" id="table-of-data"></div>
 
-     <div class="col-lg-12">
-      <div class="panel panel-primary class">
-        <div class="panel-heading">Data Table</div>
-        <div class="panel-body">
-          <div class="form-group">
-          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-          </div>
-        </div>
-      </div>
-     </div>
 
-    <div class="col-lg-6">
-      <div class="panel panel-primary class">
-        <div class="panel-heading">Dictionary</div>
-        <div class="panel-body">
-          <div class="form-group">
-          <label for="exampleTextarea">Search</label>
-          <textarea class="form-control" id="definitionSearch" rows="1"></textarea>
-          </div>
-          <div class="form-group">
-          <label for="exampleTextarea">Results</label>
-          </div>
-      </div>
-     </div>
-    </div>
+				<div class="panel panel-primary col-md-3" id="dictionary-panel">
+					<div class="panel-heading text-center">
+						<h4>Dictionary</h4>
+					</div>
+					<div class="panel-body">
+						<form id="dictionary-form">
+							<input type="text" id='dictionary-input' placeholder='type a word to look-up.'>
+							<input type="submit" id="dictionary-button">
+						</form>
+					</div>
+				</div> <!-- dictionary-panel -->
 
-    <div class="col-lg-6">
-      <div class="panel panel-primary class">
-        <div class="panel-body">
-        <button type="button" class="btn btn-primary">Download .PDF of graph</button>
-        <button type="button" class="btn btn-primary">Download .xls of graph</button>
-        </div>
-      </div>
-    </div>
 
-  </div>
-</div>
+				<button id="pdfButton" class="col-md-offset-5">Download PDF</button>
+				
+			</div> <!-- panel-body -->
+		</div> <!-- panel -->
+	</div> <!-- container -->
 
-<div class="footer">
-  <p> Created by Anthony Carnese, Anna Kimtis, and Matt Stein</p>
-  <p> @2017</p>
-</div>
-
- <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-
-  <script src="https://code.jquery.com/jquery.js"></script>
-
-<!-- flat UI javascript files -->
-   <!--  <script src="flat-ui-js/vendor/jquery.min.js"></script>
-    <script src="flat-ui-js/vendor/video.js"></script>
-    <script src="flat-ui-js/flat-ui.min.js"></script> -->
-    <script src="flat-ui-js/application.js"></script>
-
-  <script src="assets/app.js"></script>
+	<script type="text/javascript" src="./assets/js/app.js"></script>
 </body>
 </html>
