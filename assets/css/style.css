@@ -12,11 +12,11 @@ body{
 }
 
 #banner h1{
-  margin-left: 30px
+  margin-left: 35px
 }
 
 #banner p{
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 #dataSelector h3{
@@ -56,10 +56,6 @@ body{
     padding: 30px;
     background-color: #99D07A;
 }
-
-
-
-
 
 /* Tooltip text */
 /*.tooltip .tooltiptext {
