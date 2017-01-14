@@ -6,24 +6,28 @@ $(document).ready(function(){
 		// console.log('you clicked: ' + $(this).text().trim());
 
 		if ($(this).text().trim() == selection1) {
-			$(this).css('background-color', 'white');
+			$(this).css('background-color', '#A0BAAA');
 			$(this).css('color', 'black');
+      $(this).css('padding', '0px');
 			selection1 = "";
 		} else if ($(this).text().trim() == selection2) {
-			$(this).css('background-color', 'white');
+			$(this).css('background-color', '#A0BAAA');
 			$(this).css('color', 'black');
+      $(this).css('padding', '0px');
 			selection2 = "";
 		} else if ((selection1 != "") && (selection2 != "")) {
 			// do nothing-> show popover:
 			// 'You must deselect one item before you can select this one.'
 		} else if (selection1 == "") {
-			$(this).css('background-color', 'blue');
+			$(this).css('background-color', '#5BC0DE');
 			$(this).css('color', 'white');
+      $(this).css('padding', '5px');
 			selection1 = $(this).text().trim();
 			// console.log("selection1 set to: " + selection1);			
 		} else if (selection2 == "") {
-			$(this).css('background-color', 'blue');
+			$(this).css('background-color', '#5BC0DE');
 			$(this).css('color', 'white');
+      $(this).css('padding', '5px');
 			selection2 = $(this).text().trim();
 			// console.log("selection2 set to: " + selection2);
 		}
@@ -92,6 +96,7 @@ $(document).ready(function(){
 	        }]
 	    });
 	}; // drawGraph()
+
 
 
 	$(document).on('click', '#graphBtn', function() {

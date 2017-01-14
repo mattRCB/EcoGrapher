@@ -19,56 +19,62 @@
 </head>
 <body>
 
-	<div class="container">
+	<!-- <div class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading text-center">
-				<h3 class="panel-title"><strong>EcoGrapher</strong></h3>
-			</div> <!-- panel-heading -->
-			<div class="panel-body">
+				<h3 class="panel-title"><strong>EcoGrapher</strong></h3> -->
+			<!-- </div> --> <!-- panel-heading -->
+			<!-- <div class="panel-body"> -->
+
+	<div class="row" id="banner">
+			<h1 class="display-1">Data Preserves</h1>
+			<p class="lead">Compare ecological data sets with sharable graphs</p>
+	</div>
 
 
-				<ul class="col-md-3">
-					<h3>Select two data-sets to graph</h2>
-					<li class="dataSet">Palmer Drought Severity Index</li>
-					<li class="dataSet">Precipitation</li>
-					<li class="dataSet">Human Pop. (Dona Ana Cnty.)</li>
-					<li class="dataSet">Plant Species Richness</li>
-					<li class="dataSet">Rabbit / Hare Abundance</li>
-					<li class="dataSet">Soil Temperature</li>
-					<li class="dataSet">Mean Air Temperature</li>
-					<button id="graphBtn">Graph</button>
-				</ul>
+<div class="row">
+	<div class="col-md-2" id="dataSelector">
+		<h3>Select two data-sets to graph</h3>
+		<p class="dataSet">Palmer Drought Severity Index</p>
+		<p class="dataSet">Precipitation</p>
+		<p class="dataSet">Human Population in Dona Ana County</p>
+		<p class="dataSet">Plant Species Richness</p>
+		<p class="dataSet">Rabbit / Hare Abundance</p>
+		<p class="dataSet">Soil Temperature</p>
+		<p class="dataSet">Mean Air Temperature</p>
+		<button type="button" class="btn btn-info" id="graphBtn">Graph</button>
+	</div>
 
+	<div class="well col-md-8" id="graph-well">
 
-				<div class="well col-md-9" id="graph-well">
+	</div> <!-- graph-well -->
 
-				</div> <!-- graph-well -->
+	<div class="well col-md-2" id="table-of-data"></div> 
+</div> <!-- row	 -->
 
+<!-- <div class="row"> -->
 
-				<textarea placeholder="Write a caption for the graph here" class="col-md-9 col-md-offset-3" id="caption"></textarea>
+	<div class="panel panel-primary col-md-2" id="dictionary-panel">
+		<div class="panel-heaading text-center">
+			<h4>Dictionary</h4>
+		</div>
+		<div class="panel-body">
+			<form id="dictionary-form">
+				<input type="text" id='dictionary-input' placeholder='type a word to look-up.'>
+				<input type="submit" id="dictionary-button" type="button" class="btn btn-info"
+				>
+			</form>
+		</div>
+	</div> <!-- dictionary-panel -->
+	
+	<textarea placeholder="Write a caption for the graph here" class="col-md-8" id="caption"></textarea>
 
+	<button type="button" class="btn btn-success" id="pdfButton">Download PDF</button>
 
-				<div class="well col-md-12" id="table-of-data"></div>
-
-
-				<div class="panel panel-primary col-md-3" id="dictionary-panel">
-					<div class="panel-heaading text-center">
-						<h4>Dictionary</h4>
-					</div>
-					<div class="panel-body">
-						<form id="dictionary-form">
-							<input type="text" id='dictionary-input' placeholder='type a word to look-up.'>
-							<input type="submit" id="dictionary-button">
-						</form>
-					</div>
-				</div> <!-- dictionary-panel -->
-
-
-				<button id="pdfButton" class="col-md-offset-5">Download PDF</button>
-				
-			</div> <!-- panel-body -->
-		</div> <!-- panel -->
-	</div> <!-- container -->
+<!-- </div> -->		
+			<!-- </div> --> <!-- panel-body -->
+		<!-- </div> --> <!-- panel -->
+	<!-- </div> --> <!-- container -->
 
 	<script type="text/javascript" src="./assets/js/app.js"></script>
 </body>
