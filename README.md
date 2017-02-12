@@ -9,7 +9,7 @@
 * Matt Stein [Matt's Github]
 [Anna's Github]: https://github.com/akimtis
 [Matt's Github]: https://github.com/mattRCB
-[Anthony's Github]:
+[Anthony's Github]: https://github.com/ajcarnese
 
 ##Link to the App on Heroku: http://ecograph.herokuapp.com/
 [Link to the App on Heroku]: http://ecograph.herokuapp.com/
